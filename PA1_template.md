@@ -162,7 +162,5 @@ opts_chunk$set(echo = TRUE, message = FALSE, tidy = TRUE, comment = NA, fig.path
 knit2html("PA1_template.rmd")
 ```
 
-<img src="figure/unnamed-chunk-10.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
-
 
 
