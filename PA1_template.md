@@ -1,13 +1,12 @@
 ---
 title: "Peer Assessment 1"
 author: "JDeaza"
-output: md_document
 ---
 
 Peer Assessment 1
 =================
 
-This is the Peer Assesment 1, of the Reproducible Research course
+This is the Peer Assesment 1 of the Reproducible Research course
 
 Loading and preprocessing the data
 
