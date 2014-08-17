@@ -10,6 +10,7 @@ Peer Assessment 1
 This is the Peer Assesment 1, of the Reproducible Research course
 
 Loading and preprocessing the data
+
 ```{r}
 data_a1 <- read.csv("./passessment1/activity-3.csv")
 library(ggplot2)
@@ -79,5 +80,14 @@ levels(data_new$weekday) <- list(Weekday = "Monday", Weekday = "Tuesday", Weekda
 data_meanw <- ddply(data_new, .(interval, weekday), summarise, imputed.value = mean(imputed.value))
 xyplot(imputed.value~interval | weekday, data = data_meanw, type = "l", layout = c(1,2), ylab = "Number of steps", col = "blue")
 ```
+save outcomes
+
+```{r}
+opts_knit$set(progress=FALSE)
+opts_chunk$set(echo=TRUE, message=FALSE, tidy=TRUE, comment=NA,
+               fig.path="figure/", fig.keep="high", fig.width=10, fig.height=6,
+               fig.align="center")
+```
+
 
 
