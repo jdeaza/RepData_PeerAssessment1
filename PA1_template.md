@@ -88,7 +88,8 @@ hist(dsum_new, col = "blue", main = "With missing values imputed", xlab = "Numbe
     cex.main = 1, breaks = 20)
 ```
 
-<img src="figure/unnamed-chunk-41.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
+<img src="figure/unnamed-chunk-4.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
+Estimating mean and median with imputed values
 
 ```r
 mean(dsum_new)
@@ -105,6 +106,7 @@ median(dsum_new)
 ```
 [1] 10766
 ```
+Histogram with imputed values
 
 ```r
 par(mfrow = c(2, 1))
@@ -116,7 +118,8 @@ mtext("Histogram steps", side = 3, line = -1, outer = TRUE, cex.main = 2.5,
     font = 2)
 ```
 
-<img src="figure/unnamed-chunk-42.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
+<img src="figure/unnamed-chunk-6.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
+Comparative plot
 
 ```r
 ndata <- data.frame(Measure = factor(c("Mean missing", "Mean imputed", "Median missing", 
@@ -126,7 +129,7 @@ ggplot(data = ndata, aes(x = Measure, y = Value)) + geom_bar(aes(fill = Measure)
     stat = "identity") + ggtitle("Steps statistics: Data with NA vs data imputed")
 ```
 
-<img src="figure/unnamed-chunk-43.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
+<img src="figure/unnamed-chunk-7.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" />
 Are there differences in activity patterns between weekdays and weekends?
 -------------------------------------------------------------------------
 
@@ -140,11 +143,15 @@ data_new$weekday <- factor(weekdays(data_new$date_n))
 levels(data_new$weekday) <- list(Weekday = "Monday", Weekday = "Tuesday", Weekday = "Wednesday", 
     Weekday = "Thursday", Weekday = "Friday", Weekend = "Sunday", Weekend = "Saturday")
 data_meanw <- ddply(data_new, .(interval, weekday), summarise, imputed.value = mean(imputed.value))
+```
+Plot with differences between weekday and weekend
+
+```r
 xyplot(imputed.value ~ interval | weekday, data = data_meanw, type = "l", layout = c(1, 
     2), ylab = "Number of steps", col = "blue")
 ```
 
-<img src="figure/unnamed-chunk-5.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+<img src="figure/unnamed-chunk-9.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
 save outcomes
 
 
@@ -155,7 +162,7 @@ opts_chunk$set(echo = TRUE, message = FALSE, tidy = TRUE, comment = NA, fig.path
 knit2html("PA1_template.rmd")
 ```
 
-<img src="figure/unnamed-chunk-6.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
+<img src="figure/unnamed-chunk-10.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
 
 
 

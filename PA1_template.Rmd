@@ -52,12 +52,21 @@ data_new <- ddply(data_a1, "interval", mutate, imputed.value = impute(steps, mea
 data_new <- data_new[order(data_new$date), ]
 dsum_new <- tapply(data_new$imputed.value, data_new$date, sum)
 hist(dsum_new, col = "blue", main = "With missing values imputed", xlab = "Number of steps", cex.main = 1.0, breaks = 20)
+```
+Estimating mean and median with imputed values
+```{r}
 mean(dsum_new)
 median(dsum_new)
+```
+Histogram with imputed values
+```{r}
 par(mfrow = c(2,1))
 hist(data_sum, col = "red", main = "Without missing values", xlab = "Number of steps", cex.main = 1.0, cex.lab = 1.0, breaks = 20)
 hist(dsum_new, col = "blue", main = "With missing values imputed", xlab = "Number of steps", cex.main = 1.0, breaks = 20)
 mtext("Histogram steps", side = 3, line = -1, outer = TRUE, cex.main = 2.5, font = 2)
+```
+Comparative plot
+```{r}
 ndata <- data.frame(Measure = factor(c("Mean missing", "Mean imputed", "Median missing", "Median imputed"), levels = c ("Mean missing", "Mean imputed", "Median missing", "Median imputed")), Value = c(9354.23, 10766.19, 10395, 10766.19))
 ggplot(data = ndata, aes(x=Measure, y = Value)) + geom_bar(aes(fill = Measure), stat="identity") + ggtitle("Steps statistics: Data with NA vs data imputed")
 ```
@@ -72,6 +81,9 @@ data_new$date_n <- as.Date(data_new$date, format = "%Y-%m-%d")
 data_new$weekday <- factor(weekdays(data_new$date_n))
 levels(data_new$weekday) <- list(Weekday = "Monday", Weekday = "Tuesday", Weekday = "Wednesday", Weekday = "Thursday", Weekday = "Friday", Weekend = "Sunday", Weekend= "Saturday")
 data_meanw <- ddply(data_new, .(interval, weekday), summarise, imputed.value = mean(imputed.value))
+```
+Plot with differences between weekday and weekend
+```{r}
 xyplot(imputed.value~interval | weekday, data = data_meanw, type = "l", layout = c(1,2), ylab = "Number of steps", col = "blue")
 ```
 save outcomes
