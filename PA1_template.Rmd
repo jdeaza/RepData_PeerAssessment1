@@ -1,8 +1,3 @@
----
-title: "Peer Assessment 1"
-author: "JDeaza"
----
-
 Peer Assessment 1
 =================
 
@@ -87,7 +82,6 @@ opts_chunk$set(echo=TRUE, message=FALSE, tidy=TRUE, comment=NA,
                fig.path="figure/", fig.keep="high", fig.width=10, fig.height=6,
                fig.align="center")
 knit2html("PA1_template.rmd")
-browseURL("PA1_template.html")
 ```
 
 

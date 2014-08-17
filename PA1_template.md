@@ -1,8 +1,3 @@
----
-title: "Peer Assessment 1"
-author: "JDeaza"
----
-
 Peer Assessment 1
 =================
 
@@ -161,10 +156,6 @@ knit2html("PA1_template.rmd")
 ```
 
 <img src="figure/unnamed-chunk-6.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
-
-```r
-browseURL("PA1_template.html")
-```
 
 
 
