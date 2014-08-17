@@ -152,15 +152,3 @@ xyplot(imputed.value ~ interval | weekday, data = data_meanw, type = "l", layout
 ```
 
 <img src="figure/unnamed-chunk-9.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
-save outcomes
-
-
-```r
-opts_knit$set(progress = FALSE)
-opts_chunk$set(echo = TRUE, message = FALSE, tidy = TRUE, comment = NA, fig.path = "figure/", 
-    fig.keep = "high", fig.width = 10, fig.height = 6, fig.align = "center")
-knit2html("PA1_template.rmd")
-```
-
-
-

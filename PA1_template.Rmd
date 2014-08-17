@@ -86,15 +86,3 @@ Plot with differences between weekday and weekend
 ```{r}
 xyplot(imputed.value~interval | weekday, data = data_meanw, type = "l", layout = c(1,2), ylab = "Number of steps", col = "blue")
 ```
-save outcomes
-
-```{r}
-opts_knit$set(progress=FALSE)
-opts_chunk$set(echo=TRUE, message=FALSE, tidy=TRUE, comment=NA,
-               fig.path="figure/", fig.keep="high", fig.width=10, fig.height=6,
-               fig.align="center")
-knit2html("PA1_template.rmd")
-```
-
-
-
